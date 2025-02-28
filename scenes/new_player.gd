@@ -69,8 +69,12 @@ func _physics_process(delta):
 	if not is_dashing:
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -walk_speed
+			# Mengatur sprite untuk menghadap ke kiri
+			$AnimatedSprite2D.flip_h = true
 		elif Input.is_action_pressed("ui_right"):
 			velocity.x = walk_speed
+			# Mengatur sprite untuk menghadap ke kanan
+			$AnimatedSprite2D.flip_h = false
 		else:
 			velocity.x = 0
 	
