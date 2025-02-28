@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bra2fehtgs8ax"]
+
+[ext_resource type="Texture2D" uid="uid://cmf2ltcqbhjqs" path="res://assets/png-transparent-sprite-pixel-art-animation-sprite-thunder-animation-game-3d-computer-graphics-people-Photoroom.png" id="1_cryxr"]
+[ext_resource type="Script" path="res://scenes/new_player.gd" id="1_or6u3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3opi"]
+atlas = ExtResource("1_cryxr")
+region = Rect2(0, 395, 115, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7o17"]
+atlas = ExtResource("1_cryxr")
+region = Rect2(0, 0, 57, 118)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2niw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3opi")
+}],
+"loop": true,
+"name": &"crouching",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7o17")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g715l"]
+size = Vector2(41, 114)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_or6u3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -1)
+sprite_frames = SubResource("SpriteFrames_b2niw")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_g715l")
