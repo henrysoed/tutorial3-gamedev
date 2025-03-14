@@ -50,3 +50,7 @@ Crouch adalah aksi jongkok yang membuat karakter bergerak lebih lambat dan tampi
 - Lepaskan tombol untuk kembali ke posisi berdiri normal.
 
 Referensi gambar yang saya gunakan : https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pngwing.com%2Fen%2Ffree-png-nlzww&psig=AOvVaw16d0ybYXTjwB9hlrjcyxbN&ust=1740814457046000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOCVwKzt5YsDFQAAAAAdAAAAABAE
+
+## Tutorial 5
+
+Pada tutorial 5 ini saya membuat objek baru berupa treasure dimana ketika treasure di dekatkan oleh player dan menekan "E" maka treasure akan terbuka. Selain itu saya juga menambahkan background music dan juga sfx ketika melompat
