@@ -53,4 +53,4 @@ Referensi gambar yang saya gunakan : https://www.google.com/url?sa=i&url=https%3
 
 ## Tutorial 5
 
-Pada tutorial 5 ini saya membuat objek baru berupa treasure dimana ketika treasure di dekatkan oleh player dan menekan "E" maka treasure akan terbuka. Selain itu saya juga menambahkan background music dan juga sfx ketika melompat
+Pada tutorial 5 ini saya membuat objek baru berupa treasure dimana ketika player masuk ke treasure maka treasure akan terbuka. Jika player keluar dari treasure maka treasure akan tertutup. Selain itu saya juga menambahkan background music dan juga sfx ketika melompat. Saya juga menambahkan sfx ketika player memasuki treasure.

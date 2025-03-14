@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsyfep1odrxje"]
+[gd_scene load_steps=17 format=3 uid="uid://dsyfep1odrxje"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Ground.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://d3spxy1qin2i0" path="res://scenes/player.tscn" id="1_ukywn"]
 [ext_resource type="AudioStream" uid="uid://ccyv43lkwi75f" path="res://assets/Aylex - Living (freetouse.com).mp3" id="3_arjkm"]
 [ext_resource type="Texture2D" uid="uid://qioi8npaps2v" path="res://assets/52699935-removebg-preview.png" id="4_2jfm8"]
 [ext_resource type="Script" path="res://scenes/treasure.gd" id="5_3v1tp"]
+[ext_resource type="AudioStream" uid="uid://cuglm6snn7kjv" path="res://assets/entered_treasure.mp3" id="6_vje81"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wvfh3"]
 size = Vector2(143, 110.5)
@@ -56,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ldtyp")
 }],
-"loop": true,
+"loop": false,
 "name": &"close",
 "speed": 5.0
 }, {
@@ -73,7 +74,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8e3jp")
 }],
-"loop": true,
+"loop": false,
 "name": &"open",
 "speed": 5.0
 }]
@@ -96,18 +97,21 @@ position = Vector2(225.95, 294.562)
 stream = ExtResource("3_arjkm")
 autoplay = true
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="treasure" type="Area2D" parent="."]
 position = Vector2(882, 202.75)
 script = ExtResource("5_3v1tp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="treasure"]
 shape = SubResource("RectangleShape2D_wvfh3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="treasure"]
 position = Vector2(3, -24.75)
 sprite_frames = SubResource("SpriteFrames_tnfd5")
 animation = &"open"
-frame_progress = 0.929289
-script = ExtResource("5_3v1tp")
 
-[connection signal="body_entered" from="Area2D" to="player" method="_on_area_2d_body_entered"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="treasure"]
+stream = ExtResource("6_vje81")
+
+[connection signal="body_entered" from="treasure" to="player" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="treasure" to="treasure" method="_on_body_entered"]
+[connection signal="body_exited" from="treasure" to="treasure" method="_on_body_exited"]
